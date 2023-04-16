@@ -1,22 +1,52 @@
 from PyQt5.QtWidgets import*
-app = QApplication([])
+app=QApplication([])
 okno=QWidget()
-main=QHBoxLayout()
-okno.setLayout(main)
-line1=QVBoxLayout()
-line2=QVBoxLayout()
-main.addLayout(line1)
-main.addLayout(line2)
-b1=QPushButton('Дальше')
-tx1=QLabel('Результат')
-line1.addWidget(b1)
-line2.addWidget(tx1)
-tx1.hide()
+okno.setWindowTitle('calculater')
+okno.resize(650,600)
 
-def next1():
-    tx1.show()
-    b1.hide()
-b1.clicked.connect(next1)
+a=QLineEdit(okno)
+b=QLineEdit(okno)
+number1=QLineEdit
+number2=QLineEdit
+
+but1= QPushButton(okno)
+but1.resize(60,40)
+but1.move(500,200)
+
+but2= QPushButton(okno)
+but2.resize(30,20)
+but2.move(250,250)
+minus=QLabel(okno)
+minus.setText('-')
+minus.move(260,250)
+
+a.move(100,200)
+b.move(300,200)
+
+plus=QLabel(okno)
+plus.setText('+')
+plus.move(255,200)
+
+text2=QLabel(okno)#calculate!
+text2.setText('Calculate!')
+text2.move(510,210)
+text3=QLabel(okno)
+text3.setText('=')
+text3.move(450,210)
+
+result=()
+def result1():
+    global result
+    a1 = a.text()
+    b1 = b.text()
+    text2.setText (str(int(a1)+int(b1)))
+but1.clicked.connect(result1)
+def minus():
+    global result
+    plus.setText('-')
+but2.clicked.connect(minus)
+
+
 
 
 okno.show()
