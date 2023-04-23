@@ -1,0 +1,55 @@
+from PyQt5.QtWidgets import*
+app=QApplication([])
+okno=QWidget()
+okno.setWindowTitle('calculater')
+okno.resize(650,600)
+okno.setStyleSheet('''QWidget{background:grey}''')
+
+a=QLineEdit(okno)
+b=QLineEdit(okno)
+num1=QLineEdit
+num2=QLineEdit
+a.setStyleSheet('QLineEdit{background:green}')
+b.setStyleSheet('QLineEdit{background:green}')
+but1= QPushButton(okno)
+but1.resize(60,40)
+but1.move(500,200)
+
+but2= QPushButton(okno)
+but2.resize(35,30)
+but2.move(250,250)
+minus=QLabel(okno)
+minus.setText('-')
+minus.move(260,250)
+minus.setStyleSheet('QLabel{font-size:24px;color:black;}')
+
+a.move(100,208)
+b.move(300,208)
+
+plus=QLabel(okno)
+plus.setText('+')
+plus.move(255,200)
+plus.setStyleSheet('QLabel{font-size:24px;color:black;}')
+
+text2=QLabel(okno)#calculate!
+text2.setText('Calculate!')
+text2.move(510,210)
+text3=QLabel(okno)
+text3.setText('=')
+text3.move(450,210)
+text3.setStyleSheet('QLabel{font-size:24px;color:black;}')
+result=()
+def result1():
+    global result
+    a1 = a.text()
+    b1 = b.text()
+    text2.setText (str(int(a1)+int(b1)))
+
+but1.clicked.connect(result1)
+def minus():
+    global result
+    plus.setText('-')
+but2.clicked.connect(minus)
+
+okno.show()
+app.exec_()
