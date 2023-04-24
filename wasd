@@ -51,5 +51,7 @@ def minus():
     plus.setText('-')
 but2.clicked.connect(minus)
 
+def vichitanie():
+
 okno.show()
 app.exec_()
